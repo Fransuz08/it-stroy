@@ -1,0 +1,259 @@
+@media (max-width: 1100px) {
+    .main-nav {
+        gap: 55px;
+    }
+
+    .about__grid {
+        grid-template-columns: 340px 1fr;
+    }
+
+    .directions__cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .direction-card:nth-child(2) {
+        border-right: 0;
+    }
+
+    .direction-card:nth-child(-n + 2) {
+        border-bottom: 1px solid #969699;
+    }
+
+    .certificates__grid {
+        gap: 35px;
+    }
+}
+
+@media (max-width: 760px) {
+    :root {
+        --gutter: 20px;
+        --panel-gap: 10px;
+        --corner-size: 16px;
+        --corner-width: 2px;
+    }
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .site-header {
+        padding-top: 16px;
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    .logo__mark {
+        font-size: 33px;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 31;
+    }
+
+    .main-nav {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10px;
+        padding: 80px 30px;
+        background: var(--color-bg);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition:
+            opacity var(--transition),
+            visibility var(--transition),
+            transform var(--transition);
+    }
+
+    .main-nav.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .main-nav a {
+        width: 100%;
+        padding: 14px 0;
+        font-size: 24px;
+        border-bottom: 1px solid #d0d0d0;
+    }
+
+    .main-nav a::after {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 65px;
+    }
+
+    .hero__grid,
+    .about__grid,
+    .directions__heading,
+    .certificates__heading,
+    .contacts__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero__title {
+        font-size: clamp(36px, 9.2vw, 52px);
+    }
+
+    .hero__text {
+        max-width: 520px;
+        margin-bottom: 28px;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .hero__media {
+        min-height: 250px;
+    }
+
+    .about__grid {
+        gap: 35px;
+    }
+
+    .about__media {
+        max-width: 100%;
+        aspect-ratio: 1 / .72;
+    }
+
+    .about__content .section-title {
+        margin-bottom: 25px;
+    }
+
+    .directions__inner,
+    .certificates__inner,
+    .contacts .container {
+        width: 100%;
+    }
+
+    .directions__heading {
+        gap: 25px;
+    }
+
+    .directions__cards {
+        grid-template-columns: 1fr;
+    }
+
+    .direction-card,
+    .direction-card:nth-child(2) {
+        min-height: auto;
+        padding: 20px;
+        border-right: 0;
+        border-bottom: 1px solid #969699;
+    }
+
+    .direction-card:last-child {
+        border-bottom: 0;
+    }
+
+    .mission__title {
+        font-size: clamp(35px, 9vw, 50px);
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-break {
+        display: block;
+    }
+
+    .certificates {
+        width: calc(100% - 20px);
+    }
+
+    .certificates__heading {
+        margin-bottom: 40px;
+    }
+
+    .certificates__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .certificate {
+        min-height: 210px;
+    }
+
+    .contacts {
+        width: calc(100% - 20px);
+    }
+
+    .contacts__grid {
+        gap: 45px;
+        margin-top: 45px;
+    }
+
+    .contacts__title {
+        font-size: clamp(36px, 9vw, 50px);
+    }
+
+    .contact-row {
+        grid-template-columns: 75px 1fr;
+        gap: 12px;
+        font-size: 12px;
+    }
+
+    .section-title,
+    .hero__title,
+    .mission__title,
+    .contacts__title {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: normal;
+        font-size: 35px;
+    }
+
+    .hero__text,
+    .about__content p,
+    .directions__heading p,
+    .direction-card p,
+    .certificates__heading p {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .contact-row strong {
+        font-size: 16px;
+        line-height: 1.15;
+    }
+
+    .main-nav a {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 420px) {
+    .certificates__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certificate {
+        min-height: 380px;
+    }
+
+    .section-label {
+        margin-bottom: 30px;
+    }
+}

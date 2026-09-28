@@ -1,0 +1,209 @@
+:root {
+    --color-bg: #f1f1f1;
+    --color-surface: #e3e3e3;
+    --color-dark: #3f3f41;
+    --color-text: #424243;
+    --color-muted: #77777a;
+    --color-accent: #f04b18;
+    --color-white: #fff;
+
+    --container: 1720px;
+    --gutter: clamp(20px, 5.8vw, 90px);
+    --radius: 14px;
+    --transition: 220ms ease;
+    --panel-gap: 18px;
+    --corner-size: 20px;
+    --corner-width: 2px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'Bounded';
+    font-weight: 400;
+    src: url('../fonts/bounded/Bounded-Regular.ttf') format('truetype');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: Bounded, sans-serif;
+    font-weight: 400;
+    font-style: normal ;
+    line-height: 100%;
+    text-align: justify;
+    text-justify: auto;
+    letter-spacing: normal;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.container {
+    width: min(100% - (var(--gutter) * 2), var(--container));
+    margin-inline: auto;
+}
+
+.section {
+    position: relative;
+    min-width: 0;
+}
+
+/* Все основные широкие панели сайта имеют одну и ту же внешнюю ширину. */
+.directions,
+.certificates,
+.contacts {
+    width: min(var(--container), calc(100% - (var(--panel-gap) * 2)));
+    margin-inline: auto;
+}
+
+/* Декоративные оранжевые уголки из макета. */
+.directions,
+.certificates,
+.contacts {
+    background-image:
+        linear-gradient(var(--color-accent), var(--color-accent)),
+        linear-gradient(var(--color-accent), var(--color-accent)),
+        linear-gradient(var(--color-accent), var(--color-accent)),
+        linear-gradient(var(--color-accent), var(--color-accent));
+    background-position:
+        top left,
+        top right,
+        bottom left,
+        bottom right;
+    background-size:
+        var(--corner-size) var(--corner-width),
+        var(--corner-size) var(--corner-width),
+        var(--corner-size) var(--corner-width),
+        var(--corner-size) var(--corner-width);
+    background-repeat: no-repeat;
+}
+
+.directions::after,
+.certificates::after,
+.contacts::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(var(--color-accent), var(--color-accent)),
+        linear-gradient(var(--color-accent), var(--color-accent)),
+        linear-gradient(var(--color-accent), var(--color-accent)),
+        linear-gradient(var(--color-accent), var(--color-accent));
+    background-position:
+        top left,
+        top right,
+        bottom left,
+        bottom right;
+    background-size:
+        var(--corner-width) var(--corner-size),
+        var(--corner-width) var(--corner-size),
+        var(--corner-width) var(--corner-size),
+        var(--corner-width) var(--corner-size);
+    background-repeat: no-repeat;
+}
+
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: clamp(35px, 5vw, 40px);
+    font-size: 14px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.section-label__number {
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+.section-label__line {
+    width: 27px;
+    height: 1px;
+    background: #7c7c7e;
+}
+
+.section-label__text {
+    color: #454547;
+}
+
+.section-title {
+    margin: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-size: clamp(30px, 48px, 54px);
+    line-height: .99;
+    letter-spacing: -.035em;
+    font-weight: 400;
+}
+
+.section-title span,
+.hero__title span,
+.mission__title span {
+    color: var(--color-accent);
+}
+
+.image-placeholder {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, #858585 0%, #484848 45%, #a4a4a4 100%);
+    color: rgba(255, 255, 255, .72);
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: .12em;
+}
+
+.image-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(145deg, transparent 45%, rgba(240, 75, 24, .5) 45.3%, transparent 46%),
+        linear-gradient(35deg, transparent 58%, rgba(255, 255, 255, .12) 58.2%, transparent 59%);
+}
+
+.image-placeholder > span {
+    position: relative;
+    z-index: 1;
+}
+
+.desktop-only {
+    display: block;
+}
+
+.mobile-break {
+    display: none;
+}
